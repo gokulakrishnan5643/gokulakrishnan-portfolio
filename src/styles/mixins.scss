@@ -1,0 +1,136 @@
+@import './variables.scss';
+
+@mixin glass-card {
+  background: $glass-bg;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid $glass-border;
+  border-radius: $radius-lg;
+  box-shadow: $glass-shadow;
+}
+
+@mixin glass-card-hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+              0 0 30px rgba($primary-cyan, 0.1);
+}
+
+@mixin gradient-border {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: $accent-gradient;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: 0.875rem 1.75rem;
+  font-size: $fs-base;
+  font-weight: 500;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin primary-button {
+  @include button-base;
+  background: $accent-gradient;
+  color: $text-primary;
+  border: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba($primary-blue, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin secondary-button {
+  @include button-base;
+  background: transparent;
+  color: $text-primary;
+  border: 1px solid $glass-border;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin section-title {
+  font-size: $fs-4xl;
+  font-weight: 700;
+  margin-bottom: $spacing-lg;
+  text-align: center;
+
+  @media (max-width: $bp-md) {
+    font-size: $fs-3xl;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $bp-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $bp-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $bp-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: $bp-xl) { @content; }
+  }
+}
+
+@mixin text-shadow-glow {
+  text-shadow: 0 0 20px rgba($primary-cyan, 0.5),
+               0 0 40px rgba($primary-blue, 0.3);
+}
+
+@mixin hover-scale($scale: 1.02) {
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin icon-styles {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}

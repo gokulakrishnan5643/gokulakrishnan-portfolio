@@ -1,0 +1,95 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.certificationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: $spacing-lg;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.certificateCard {
+  @include glass-card;
+  padding: $spacing-xl;
+  position: relative;
+  overflow: hidden;
+  transition: all $transition-base;
+
+  &:hover {
+    @include glass-card-hover;
+
+    .certIcon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+  }
+}
+
+.certBackground {
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba($primary-cyan, 0.1), rgba($primary-purple, 0.1));
+  filter: blur(40px);
+}
+
+.certContent {
+  position: relative;
+  z-index: 1;
+}
+
+.certIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: $radius-md;
+  background: $accent-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-md;
+  transition: transform $transition-base;
+}
+
+.icon {
+  color: white;
+}
+
+.certTitle {
+  font-size: $fs-xl;
+  font-weight: 600;
+  margin-bottom: $spacing-xs;
+}
+
+.certIssuer {
+  font-size: $fs-sm;
+  color: $primary-cyan;
+  margin-bottom: $spacing-sm;
+}
+
+.certDescription {
+  font-size: $fs-sm;
+  color: $text-secondary;
+  line-height: 1.7;
+}
+
+.verifyBadge {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0.25rem 0.75rem;
+  background: rgba($primary-cyan, 0.1);
+  border: 1px solid rgba($primary-cyan, 0.3);
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  color: $primary-cyan;
+}

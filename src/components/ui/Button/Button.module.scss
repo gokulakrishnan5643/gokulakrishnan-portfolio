@@ -1,0 +1,62 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.button {
+  @include button-base;
+
+  &Primary {
+    @include primary-button;
+  }
+
+  &Secondary {
+    @include secondary-button;
+  }
+
+  &Icon {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: $radius-full;
+    background: $glass-bg;
+    border: 1px solid $glass-border;
+    color: $text-secondary;
+    transition: all $transition-base;
+
+    &:hover {
+      background: rgba($primary-cyan, 0.1);
+      color: $primary-cyan;
+      border-color: $primary-cyan;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($primary-cyan, 0.2);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  position: relative;
+  z-index: 1;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}

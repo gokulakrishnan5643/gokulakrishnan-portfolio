@@ -1,0 +1,45 @@
+@import '../../../styles/variables.scss';
+
+.loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $bg-dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 700;
+  background: $text-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+
+.progressContainer {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: $accent-gradient;
+  border-radius: 999px;
+}
+
+.loadingText {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+}

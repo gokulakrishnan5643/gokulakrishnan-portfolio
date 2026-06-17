@@ -1,0 +1,116 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.contactWrapper {
+  @include glass-card;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: $spacing-2xl;
+  text-align: center;
+
+  @media (max-width: $bp-md) {
+    padding: $spacing-lg;
+    margin: 0 $spacing-sm;
+  }
+}
+
+.contactIntro {
+  font-size: $fs-lg;
+  color: $text-secondary;
+  margin-bottom: $spacing-2xl;
+  line-height: 1.7;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+}
+
+.socialLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  border-radius: $radius-lg;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  transition: all $transition-base;
+  min-width: 120px;
+
+  &:hover {
+    background: rgba($primary-cyan, 0.1);
+    border-color: $primary-cyan;
+    transform: translateY(-4px);
+
+    .socialIcon {
+      color: $primary-cyan;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.socialIcon {
+  transition: all $transition-base;
+  color: $text-secondary;
+}
+
+.socialLabel {
+  font-size: $fs-sm;
+  color: $text-muted;
+}
+
+.emailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: 0.875rem 1.75rem;
+  background: $accent-gradient;
+  border-radius: $radius-md;
+  color: $text-primary;
+  font-weight: 500;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba($primary-blue, 0.4);
+  }
+}
+
+.availability {
+  margin-top: $spacing-2xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $glass-border;
+}
+
+.availabilityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0.5rem 1rem;
+  background: rgba(#22c55e, 0.1);
+  border: 1px solid rgba(#22c55e, 0.3);
+  border-radius: $radius-full;
+  color: #22c55e;
+  font-size: $fs-sm;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

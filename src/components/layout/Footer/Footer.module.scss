@@ -1,0 +1,71 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.footer {
+  background: $bg-darker;
+  border-top: 1px solid $glass-border;
+  padding: $spacing-2xl 0;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xl;
+}
+
+.logo {
+  font-size: $fs-2xl;
+  font-weight: 700;
+  background: $text-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.socialLinks {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba($primary-cyan, 0.1);
+    border-color: $primary-cyan;
+    color: $primary-cyan;
+    transform: translateY(-2px);
+  }
+}
+
+.divider {
+  width: 100%;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    $glass-border,
+    transparent
+  );
+}
+
+.copyright {
+  font-size: $fs-sm;
+  color: $text-muted;
+  text-align: center;
+}
+
+.highlight {
+  color: $primary-cyan;
+}

@@ -1,0 +1,78 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  @include glass-card;
+  padding: $spacing-xl;
+  text-align: center;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $accent-gradient;
+    transform: scaleX(0);
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    @include glass-card-hover;
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .iconWrapper {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 30px rgba($primary-cyan, 0.5);
+    }
+  }
+}
+
+.iconWrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: $radius-lg;
+  background: $accent-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto $spacing-md;
+  transition: all $transition-base;
+}
+
+.icon {
+  color: white;
+}
+
+.featureTitle {
+  font-size: $fs-lg;
+  font-weight: 600;
+  margin-bottom: $spacing-sm;
+}
+
+.featureDescription {
+  font-size: $fs-sm;
+  color: $text-secondary;
+  line-height: 1.7;
+}

@@ -1,0 +1,126 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  padding: $spacing-md 0;
+  transition: all $transition-base;
+}
+
+.scrolled {
+  background: rgba($bg-darker, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid $glass-border;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: $fs-xl;
+  font-weight: 700;
+  background: $text-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
+
+.navLink {
+  font-size: $fs-sm;
+  color: $text-secondary;
+  transition: color $transition-fast;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $accent-gradient;
+    transition: width $transition-base;
+  }
+
+  &:hover,
+  &.active {
+    color: $primary-cyan;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.mobileMenuButton {
+  display: none;
+  padding: $spacing-xs;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  @media (max-width: $bp-md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    color: $primary-cyan;
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($bg-darker, 0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xl;
+  z-index: $z-modal;
+}
+
+.closeButton {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-cyan;
+  }
+}
+
+.mobileNavLink {
+  font-size: $fs-2xl;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-cyan;
+  }
+}

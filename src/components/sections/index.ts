@@ -1,0 +1,9 @@
+export { Hero } from './Hero/Hero';
+export { About } from './About/About';
+export { Skills } from './Skills/Skills';
+export { Projects } from './Projects/Projects';
+export { Leadership } from './Leadership/Leadership';
+export { Education } from './Education/Education';
+export { Certifications } from './Certifications/Certifications';
+export { WhyHireMe } from './WhyHireMe/WhyHireMe';
+export { Contact } from './Contact/Contact';

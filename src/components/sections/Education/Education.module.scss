@@ -1,0 +1,87 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.educationTimeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: $spacing-2xl;
+
+  @media (max-width: $bp-sm) {
+    padding-left: $spacing-lg;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, $primary-blue, $primary-cyan);
+    border-radius: $radius-full;
+  }
+}
+
+.educationItem {
+  position: relative;
+  margin-bottom: $spacing-2xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * $spacing-2xl - 6px);
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: $accent-gradient;
+    border: 3px solid $bg-dark;
+    box-shadow: 0 0 20px rgba($primary-blue, 0.5);
+
+    @media (max-width: $bp-sm) {
+      left: calc(-1 * $spacing-lg - 6px);
+    }
+  }
+}
+
+.educationCard {
+  @include glass-card;
+  padding: $spacing-lg;
+  transition: all $transition-base;
+
+  &:hover {
+    @include glass-card-hover;
+  }
+}
+
+.degree {
+  font-size: $fs-xl;
+  font-weight: 600;
+  margin-bottom: $spacing-xs;
+}
+
+.field {
+  font-size: $fs-lg;
+  color: $primary-cyan;
+  margin-bottom: $spacing-xs;
+}
+
+.year {
+  font-size: $fs-sm;
+  color: $text-muted;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.description {
+  font-size: $fs-sm;
+  color: $text-secondary;
+  line-height: 1.7;
+}

@@ -1,0 +1,133 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: $spacing-xl;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectCard {
+  @include glass-card;
+  overflow: hidden;
+  position: relative;
+  transition: all $transition-base;
+
+  &:hover {
+    @include glass-card-hover;
+
+    .imageOverlay {
+      opacity: 1;
+    }
+
+    .projectIcon {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+}
+
+.cardHeader {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.gradientBackground {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba($bg-dark, 0.9), transparent);
+  opacity: 0;
+  transition: opacity $transition-base;
+}
+
+.projectIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: transform $transition-base;
+}
+
+.cardContent {
+  padding: $spacing-lg;
+}
+
+.projectTitle {
+  font-size: $fs-xl;
+  font-weight: 600;
+  margin-bottom: $spacing-sm;
+}
+
+.projectDescription {
+  font-size: $fs-sm;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin-bottom: $spacing-md;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+}
+
+.techTag {
+  padding: 0.375rem 0.75rem;
+  background: rgba($primary-cyan, 0.1);
+  border: 1px solid rgba($primary-cyan, 0.2);
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  color: $primary-cyan;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba($primary-cyan, 0.2);
+    border-color: $primary-cyan;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xs;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $fs-xs;
+  color: $text-muted;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $accent-gradient;
+  }
+}

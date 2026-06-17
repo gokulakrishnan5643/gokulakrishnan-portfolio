@@ -1,0 +1,128 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-primary;
+  background: $bg-dark;
+  color: $text-primary;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 20% 20%, rgba($primary-blue, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba($primary-purple, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba($primary-cyan, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+::selection {
+  background: rgba($primary-cyan, 0.3);
+  color: $text-primary;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-darker;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, $primary-blue, $primary-purple);
+  border-radius: $radius-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, $primary-cyan, $primary-blue);
+}
+
+// Utility Classes
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (max-width: $bp-md) {
+    padding: 0 $spacing-sm;
+  }
+}
+
+.section {
+  padding: $spacing-3xl 0;
+
+  @media (max-width: $bp-md) {
+    padding: $spacing-2xl 0;
+  }
+}
+
+.gradient-text {
+  background: $text-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Animation Keyframes
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba($primary-cyan, 0.3); }
+  50% { box-shadow: 0 0 40px rgba($primary-cyan, 0.6); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
